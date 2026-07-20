@@ -383,6 +383,14 @@ MIFOS_PASSWORD_REGEX=^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,50}$
 | MIFOS_COMPLIANCE_HIDE_CLIENT_DATA  | Hide client names in UI (mask with \*)             | false         |
 | MIFOS_PRODUCTION_MODE_ENABLE_RBAC  | Enable Role-Based Access Control for menus/buttons | false         |
 
+#### Client Address Location Settings
+
+| Variable                             | Description                                               | Default Value |
+| ------------------------------------ | --------------------------------------------------------- | ------------- |
+| MIFOS_ENABLE_CLIENT_ADDRESS_LOCATION | Enable latitude, longitude, and map display for addresses | false         |
+
+This feature also requires the Fineract address field configuration for `latitude` and `longitude` to be enabled. If those fields are disabled in Fineract, they remain hidden in the Web-App.
+
 #### OAUTH Settings
 
 | Variable                      | Description                                      | Default Value |
