@@ -63,4 +63,59 @@ export class BaseTellerService {
   getSavingsOpeningReceipt(receiptNumber: string | number): Observable<any> {
     return this.http.get(`${this.savingsAccountOpeningsPath}/${receiptNumber}`);
   }
+
+  /**
+   * Searches clients and savings accounts using the authoritative platform search endpoint.
+   */
+  searchDepositCustomersAndAccounts(searchTerm: string): Observable<any> {
+    const params = new HttpParams()
+      .set('exactMatch', 'false')
+      .set('query', searchTerm)
+      .set('resource', 'clients,savings');
+    return this.http.get('/search', { params });
+  }
+
+  /**
+   * Retrieves a client profile.
+   */
+  getDepositClient(clientId: string | number): Observable<any> {
+    return this.http.get(`/clients/${clientId}`);
+  }
+
+  /**
+   * Retrieves the customer's accounts so an existing active savings account can be selected.
+   */
+  getDepositClientAccounts(clientId: string | number): Observable<any> {
+    return this.http.get(`/clients/${clientId}/accounts`);
+  }
+
+  /**
+   * Retrieves the selected savings account with server-provided balances and status.
+   */
+  getDepositSavingsAccount(savingsId: string | number): Observable<any> {
+    const params = new HttpParams().set('associations', 'all');
+    return this.http.get(`/savingsaccounts/${savingsId}`, { params });
+  }
+
+  /**
+   * Retrieves payment type options for the savings transaction command.
+   */
+  getSavingsDepositTemplate(savingsId: string | number): Observable<any> {
+    return this.http.get(`/savingsaccounts/${savingsId}/transactions/template`);
+  }
+
+  /**
+   * Deposits funds into an existing savings account.
+   */
+  depositToSavingsAccount(savingsId: string | number, payload: any): Observable<any> {
+    const params = new HttpParams().set('command', 'deposit');
+    return this.http.post(`/savingsaccounts/${savingsId}/transactions`, payload, { params });
+  }
+
+  /**
+   * Retrieves the saved transaction as the authoritative receipt/details response.
+   */
+  getSavingsDepositReceipt(savingsId: string | number, transactionId: string | number): Observable<any> {
+    return this.http.get(`/savingsaccounts/${savingsId}/transactions/${transactionId}`);
+  }
 }
