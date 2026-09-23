@@ -569,6 +569,48 @@
             </mat-list-item>
           </div>
 
+          <mat-list-item *mifosxHasPermission="'READ_CASHIER_CLOSING'">
+            <a class="menu-left-section" [routerLink]="['base-teller', 'cash-register-closing']">
+              <mat-icon matListIcon>point_of_sale</mat-icon>
+              <div matLine>{{ 'web1232.views.closing' | translate }}</div>
+            </a>
+          </mat-list-item>
+
+          <mat-list-item *mifosxHasPermission="'READ_GLOBAL_SETTLEMENT'">
+            <a class="menu-left-section" [routerLink]="['base-teller', 'global-cash-count']">
+              <mat-icon matListIcon>account_balance_wallet</mat-icon>
+              <div matLine>{{ 'web1232.views.global' | translate }}</div>
+            </a>
+          </mat-list-item>
+
+          <mat-list-item *mifosxHasPermission="'CREATE_CASH_DEPOSIT'">
+            <a class="menu-left-section" [routerLink]="['base-teller', 'deposit-in-transit']">
+              <mat-icon matListIcon>local_shipping</mat-icon>
+              <div matLine>{{ 'web1232.views.deposit-in-transit' | translate }}</div>
+            </a>
+          </mat-list-item>
+
+          <mat-list-item *mifosxHasPermission="'CREATE_CASH_DEPOSIT'">
+            <a class="menu-left-section" [routerLink]="['base-teller', 'bank-deposit']">
+              <mat-icon matListIcon>account_balance</mat-icon>
+              <div matLine>{{ 'web1232.views.bank-deposit' | translate }}</div>
+            </a>
+          </mat-list-item>
+
+          <mat-list-item *mifosxHasPermission="'READ_CASH_OPERATION_HISTORY'">
+            <a class="menu-left-section" [routerLink]="['base-teller', 'cash-operation-history']">
+              <mat-icon matListIcon>history</mat-icon>
+              <div matLine>{{ 'web1232.views.history' | translate }}</div>
+            </a>
+          </mat-list-item>
+
+          <mat-list-item *mifosxHasPermission="'READ_CASH_HOLDINGS'">
+            <a class="menu-left-section" [routerLink]="['base-teller', 'cash-on-hand']">
+              <mat-icon matListIcon>payments</mat-icon>
+              <div matLine>{{ 'web1232.views.holdings' | translate }}</div>
+            </a>
+          </mat-list-item>
+
           <div #workingDays>
             <mat-list-item *mifosxHasPermission="'READ_WORKINGDAYS'">
               <div class="menu-list-item-content">
