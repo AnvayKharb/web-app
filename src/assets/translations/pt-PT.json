@@ -1940,7 +1940,9 @@
       "Tenant Management": "Tenant Management",
       "Tenant Management Sign In": "Tenant Management Sign In",
       "Database Connection": "Database Connection",
-      "Reverse Transaction": "Estornar transação"
+      "Reverse Transaction": "Estornar transação",
+      "Savings Account Opening": "Abertura de conta poupança",
+      "Savings Account Deposit": "Depósito em conta poupança"
     },
     "inputs": {
       "Returned": "Devolvido",
@@ -6322,6 +6324,9 @@
     }
   },
   "web1232": {
+    "navigation": {
+      "baseTeller": "Caixa base"
+    },
     "views": {
       "closing": "Fechamento de caixa registradora",
       "global": "Contagem de caixa global",

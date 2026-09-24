@@ -8,7 +8,7 @@
 
 <div class="container">
   <mat-card>
-    <div class="layout-row responsive-column gap-20px">
+    <div class="layout-row responsive-column gap-20px organization-columns">
       <div class="flex-50">
         <mat-nav-list>
           <div #office>
@@ -471,145 +471,103 @@
             </mat-list-item>
           </div>
 
-          <div #baseTellerSavingsOpening>
-            <mat-list-item *mifosxHasPermission="'READ_TELLER'">
-              <div class="menu-list-item-content">
-                <a class="menu-left-section" [routerLink]="['base-teller', 'savings-account-openings']">
-                  <mat-icon matListIcon>
-                    <fa-icon icon="piggy-bank" size="sm"></fa-icon>
-                  </mat-icon>
-                  <div matLine>
-                    {{ 'labels.heading.Savings Account Opening' | translate }}
-                    @if (arrowBooleans[20]) {
-                      <p matLine class="menu-explanation">
-                        {{ 'labels.text.Open and fund a savings account through Base Teller' | translate }}
-                      </p>
-                    }
-                  </div>
-                </a>
-                <div class="menu-right-section">
-                  <button
-                    type="button"
-                    mat-icon-button
-                    class="menu-expand-button"
-                    (click)="arrowBooleansToggle(20)"
-                    [attr.aria-expanded]="arrowBooleans[20]"
-                    [attr.aria-label]="'tooltips.Toggle Collapse' | translate"
-                  >
-                    <fa-icon [icon]="arrowBooleans[20] ? 'arrow-up' : 'arrow-down'" size="md"></fa-icon>
-                  </button>
-                </div>
-              </div>
+          <div
+            class="base-teller-group"
+            *mifosxHasPermission="[
+              'READ_TELLER',
+              'DEPOSIT_SAVINGSACCOUNT',
+              'READ_BASE_TELLER_RETURNED_CHECK_PAYMENT',
+              'READ_CASHIER_CLOSING',
+              'READ_GLOBAL_SETTLEMENT',
+              'CREATE_CASH_DEPOSIT',
+              'READ_CASH_OPERATION_HISTORY',
+              'READ_CASH_HOLDINGS'
+            ]"
+          >
+            <mat-list-item>
+              <button
+                type="button"
+                class="menu-list-item-content base-teller-group-trigger"
+                (click)="baseTellerExpanded = !baseTellerExpanded"
+                [attr.aria-expanded]="baseTellerExpanded"
+              >
+                <span class="menu-left-section">
+                  <mat-icon matListIcon>point_of_sale</mat-icon>
+                  <span matLine>{{ 'web1232.navigation.baseTeller' | translate }}</span>
+                </span>
+                <span class="menu-right-section">
+                  <fa-icon [icon]="baseTellerExpanded ? 'arrow-up' : 'arrow-down'" size="md"></fa-icon>
+                </span>
+              </button>
             </mat-list-item>
-          </div>
 
-          <div #baseTellerSavingsDeposit>
-            <mat-list-item *mifosxHasPermission="'DEPOSIT_SAVINGSACCOUNT'">
-              <div class="menu-list-item-content">
-                <a class="menu-left-section" [routerLink]="['base-teller', 'savings-account-deposits']">
-                  <mat-icon matListIcon>
-                    <fa-icon icon="money-bill-wave" size="sm"></fa-icon>
-                  </mat-icon>
-                  <div matLine>
-                    {{ 'labels.heading.Savings Account Deposit' | translate }}
-                    @if (arrowBooleans[21]) {
-                      <p matLine class="menu-explanation">
-                        {{
-                          'labels.text.Deposit funds into an existing savings account through Base Teller' | translate
-                        }}
-                      </p>
-                    }
-                  </div>
-                </a>
-                <div class="menu-right-section">
-                  <button
-                    type="button"
-                    mat-icon-button
-                    class="menu-expand-button"
-                    (click)="arrowBooleansToggle(21)"
-                    [attr.aria-expanded]="arrowBooleans[21]"
-                    [attr.aria-label]="'tooltips.Toggle Collapse' | translate"
-                  >
-                    <fa-icon [icon]="arrowBooleans[21] ? 'arrow-up' : 'arrow-down'" size="md"></fa-icon>
-                  </button>
-                </div>
+            @if (baseTellerExpanded) {
+              <div class="base-teller-links">
+                <mat-list-item *mifosxHasPermission="'READ_TELLER'">
+                  <a class="menu-left-section" [routerLink]="['base-teller', 'savings-account-openings']">
+                    <mat-icon matListIcon>add_card</mat-icon>
+                    <span matLine>{{ 'labels.heading.Savings Account Opening' | translate }}</span>
+                  </a>
+                </mat-list-item>
+
+                <mat-list-item *mifosxHasPermission="'DEPOSIT_SAVINGSACCOUNT'">
+                  <a class="menu-left-section" [routerLink]="['base-teller', 'savings-account-deposits']">
+                    <mat-icon matListIcon>savings</mat-icon>
+                    <span matLine>{{ 'labels.heading.Savings Account Deposit' | translate }}</span>
+                  </a>
+                </mat-list-item>
+
+                <mat-list-item *mifosxHasPermission="'READ_BASE_TELLER_RETURNED_CHECK_PAYMENT'">
+                  <a class="menu-left-section" [routerLink]="['base-teller', 'returned-check-payments']">
+                    <mat-icon matListIcon>assignment_return</mat-icon>
+                    <span matLine>{{ 'labels.heading.Returned Check Payment' | translate }}</span>
+                  </a>
+                </mat-list-item>
+
+                <mat-list-item *mifosxHasPermission="'READ_CASHIER_CLOSING'">
+                  <a class="menu-left-section" [routerLink]="['base-teller', 'cash-register-closing']">
+                    <mat-icon matListIcon>point_of_sale</mat-icon>
+                    <span matLine>{{ 'web1232.views.closing' | translate }}</span>
+                  </a>
+                </mat-list-item>
+
+                <mat-list-item *mifosxHasPermission="'READ_GLOBAL_SETTLEMENT'">
+                  <a class="menu-left-section" [routerLink]="['base-teller', 'global-cash-count']">
+                    <mat-icon matListIcon>account_balance_wallet</mat-icon>
+                    <span matLine>{{ 'web1232.views.global' | translate }}</span>
+                  </a>
+                </mat-list-item>
+
+                <mat-list-item *mifosxHasPermission="'CREATE_CASH_DEPOSIT'">
+                  <a class="menu-left-section" [routerLink]="['base-teller', 'deposit-in-transit']">
+                    <mat-icon matListIcon>local_shipping</mat-icon>
+                    <span matLine>{{ 'web1232.views.deposit-in-transit' | translate }}</span>
+                  </a>
+                </mat-list-item>
+
+                <mat-list-item *mifosxHasPermission="'CREATE_CASH_DEPOSIT'">
+                  <a class="menu-left-section" [routerLink]="['base-teller', 'bank-deposit']">
+                    <mat-icon matListIcon>account_balance</mat-icon>
+                    <span matLine>{{ 'web1232.views.bank-deposit' | translate }}</span>
+                  </a>
+                </mat-list-item>
+
+                <mat-list-item *mifosxHasPermission="'READ_CASH_OPERATION_HISTORY'">
+                  <a class="menu-left-section" [routerLink]="['base-teller', 'cash-operation-history']">
+                    <mat-icon matListIcon>history</mat-icon>
+                    <span matLine>{{ 'web1232.views.history' | translate }}</span>
+                  </a>
+                </mat-list-item>
+
+                <mat-list-item *mifosxHasPermission="'READ_CASH_HOLDINGS'">
+                  <a class="menu-left-section" [routerLink]="['base-teller', 'cash-on-hand']">
+                    <mat-icon matListIcon>payments</mat-icon>
+                    <span matLine>{{ 'web1232.views.holdings' | translate }}</span>
+                  </a>
+                </mat-list-item>
               </div>
-            </mat-list-item>
+            }
           </div>
-
-          <div #baseTellerReturnedCheckPayment>
-            <mat-list-item *mifosxHasPermission="'READ_BASE_TELLER_RETURNED_CHECK_PAYMENT'">
-              <div class="menu-list-item-content">
-                <a class="menu-left-section" [routerLink]="['base-teller', 'returned-check-payments']">
-                  <mat-icon matListIcon>
-                    <fa-icon icon="money-check" size="sm"></fa-icon>
-                  </mat-icon>
-                  <div matLine>
-                    {{ 'labels.heading.Returned Check Payment' | translate }}
-                    @if (arrowBooleans[22]) {
-                      <p matLine class="menu-explanation">
-                        {{ 'labels.text.Settle a returned check with a cash payment' | translate }}
-                      </p>
-                    }
-                  </div>
-                </a>
-                <div class="menu-right-section">
-                  <button
-                    type="button"
-                    mat-icon-button
-                    class="menu-expand-button"
-                    (click)="arrowBooleansToggle(22)"
-                    [attr.aria-expanded]="arrowBooleans[22]"
-                    [attr.aria-label]="'tooltips.Toggle Collapse' | translate"
-                  >
-                    <fa-icon [icon]="arrowBooleans[22] ? 'arrow-up' : 'arrow-down'" size="md"></fa-icon>
-                  </button>
-                </div>
-              </div>
-            </mat-list-item>
-          </div>
-
-          <mat-list-item *mifosxHasPermission="'READ_CASHIER_CLOSING'">
-            <a class="menu-left-section" [routerLink]="['base-teller', 'cash-register-closing']">
-              <mat-icon matListIcon>point_of_sale</mat-icon>
-              <div matLine>{{ 'web1232.views.closing' | translate }}</div>
-            </a>
-          </mat-list-item>
-
-          <mat-list-item *mifosxHasPermission="'READ_GLOBAL_SETTLEMENT'">
-            <a class="menu-left-section" [routerLink]="['base-teller', 'global-cash-count']">
-              <mat-icon matListIcon>account_balance_wallet</mat-icon>
-              <div matLine>{{ 'web1232.views.global' | translate }}</div>
-            </a>
-          </mat-list-item>
-
-          <mat-list-item *mifosxHasPermission="'CREATE_CASH_DEPOSIT'">
-            <a class="menu-left-section" [routerLink]="['base-teller', 'deposit-in-transit']">
-              <mat-icon matListIcon>local_shipping</mat-icon>
-              <div matLine>{{ 'web1232.views.deposit-in-transit' | translate }}</div>
-            </a>
-          </mat-list-item>
-
-          <mat-list-item *mifosxHasPermission="'CREATE_CASH_DEPOSIT'">
-            <a class="menu-left-section" [routerLink]="['base-teller', 'bank-deposit']">
-              <mat-icon matListIcon>account_balance</mat-icon>
-              <div matLine>{{ 'web1232.views.bank-deposit' | translate }}</div>
-            </a>
-          </mat-list-item>
-
-          <mat-list-item *mifosxHasPermission="'READ_CASH_OPERATION_HISTORY'">
-            <a class="menu-left-section" [routerLink]="['base-teller', 'cash-operation-history']">
-              <mat-icon matListIcon>history</mat-icon>
-              <div matLine>{{ 'web1232.views.history' | translate }}</div>
-            </a>
-          </mat-list-item>
-
-          <mat-list-item *mifosxHasPermission="'READ_CASH_HOLDINGS'">
-            <a class="menu-left-section" [routerLink]="['base-teller', 'cash-on-hand']">
-              <mat-icon matListIcon>payments</mat-icon>
-              <div matLine>{{ 'web1232.views.holdings' | translate }}</div>
-            </a>
-          </mat-list-item>
 
           <div #workingDays>
             <mat-list-item *mifosxHasPermission="'READ_WORKINGDAYS'">

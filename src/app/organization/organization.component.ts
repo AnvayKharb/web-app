@@ -51,6 +51,7 @@ export class OrganizationComponent implements AfterViewInit {
   private popoverService = inject(PopoverService);
 
   shouldShowFundMapping = false;
+  baseTellerExpanded = false;
   /* Reference of manage offices */
   @ViewChild('office') office: ElementRef<any>;
   /* Template for popover on manage offices */

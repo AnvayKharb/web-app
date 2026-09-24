@@ -1943,7 +1943,9 @@
       "Tenant Management": "Tenant Management",
       "Tenant Management Sign In": "Tenant Management Sign In",
       "Database Connection": "Database Connection",
-      "Reverse Transaction": "Transaktion stornieren"
+      "Reverse Transaction": "Transaktion stornieren",
+      "Savings Account Opening": "Sparkonto eröffnen",
+      "Savings Account Deposit": "Einzahlung auf ein Sparkonto"
     },
     "inputs": {
       "Returned": "Zurückgegeben",
@@ -6612,6 +6614,9 @@
     }
   },
   "web1232": {
+    "navigation": {
+      "baseTeller": "Basiskasse"
+    },
     "views": {
       "closing": "Schließung der Registrierkasse",
       "global": "Globale Bargeldzählung",

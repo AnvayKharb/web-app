@@ -1940,7 +1940,9 @@
       "Tenant Management": "Tenant Management",
       "Tenant Management Sign In": "Tenant Management Sign In",
       "Database Connection": "Database Connection",
-      "Reverse Transaction": "लेनदेन उल्टाउनुहोस्"
+      "Reverse Transaction": "लेनदेन उल्टाउनुहोस्",
+      "Savings Account Opening": "बचत खाता खोल्ने",
+      "Savings Account Deposit": "बचत खातामा जम्मा"
     },
     "inputs": {
       "Returned": "फिर्ता भएको",
@@ -6322,6 +6324,9 @@
     }
   },
   "web1232": {
+    "navigation": {
+      "baseTeller": "आधारभूत टेलर"
+    },
     "views": {
       "closing": "नगद दर्ता बन्द",
       "global": "ग्लोबल नगद गणना",

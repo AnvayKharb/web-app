@@ -1942,7 +1942,9 @@
       "Tenant Management": "Tenant Management",
       "Tenant Management Sign In": "Tenant Management Sign In",
       "Database Connection": "Database Connection",
-      "Reverse Transaction": "Stornovat transakci"
+      "Reverse Transaction": "Stornovat transakci",
+      "Savings Account Opening": "Otevření spořicího účtu",
+      "Savings Account Deposit": "Vklad na spořicí účet"
     },
     "inputs": {
       "Returned": "Vráceno",
@@ -6613,6 +6615,9 @@
     }
   },
   "web1232": {
+    "navigation": {
+      "baseTeller": "Základní pokladna"
+    },
     "views": {
       "closing": "Uzavření pokladny",
       "global": "Global Cash Count",

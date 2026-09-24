@@ -1944,7 +1944,9 @@
       "Tenant Management": "Tenant Management",
       "Tenant Management Sign In": "Tenant Management Sign In",
       "Database Connection": "Database Connection",
-      "Reverse Transaction": "Annuler la transaction"
+      "Reverse Transaction": "Annuler la transaction",
+      "Savings Account Opening": "Ouverture d'un compte d'épargne",
+      "Savings Account Deposit": "Dépôt sur un compte d'épargne"
     },
     "inputs": {
       "Returned": "Retourné",
@@ -6326,6 +6328,9 @@
     }
   },
   "web1232": {
+    "navigation": {
+      "baseTeller": "Guichet de base"
+    },
     "views": {
       "closing": "Fermeture de la caisse",
       "global": "Compte de trésorerie mondial",

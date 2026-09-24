@@ -1940,7 +1940,9 @@
       "Tenant Management": "Tenant Management",
       "Tenant Management Sign In": "Tenant Management Sign In",
       "Database Connection": "Database Connection",
-      "Reverse Transaction": "Atšaukti operaciją"
+      "Reverse Transaction": "Atšaukti operaciją",
+      "Savings Account Opening": "Taupomosios sąskaitos atidarymas",
+      "Savings Account Deposit": "Indėlis į taupomąją sąskaitą"
     },
     "inputs": {
       "Returned": "Grąžintas",
@@ -6323,6 +6325,9 @@
     }
   },
   "web1232": {
+    "navigation": {
+      "baseTeller": "Pagrindinė kasa"
+    },
     "views": {
       "closing": "Kasos aparato uždarymas",
       "global": "Pasaulinis grynųjų pinigų skaičius",

@@ -11,6 +11,38 @@
   text-decoration: none;
 }
 
-.menu-expand-button {
-  line-height: 1;
+.organization-columns > .flex-50 {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.base-teller-group-trigger {
+  padding: 0;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  background: transparent;
+  cursor: pointer;
+}
+
+.base-teller-links {
+  margin: 0 8px 4px 18px;
+  padding-left: 8px;
+  border-left: 2px solid var(--mat-sys-outline-variant);
+
+  mat-list-item {
+    height: 48px;
+  }
+
+  .menu-left-section {
+    height: 100%;
+  }
+}
+
+@media (width <=768px) {
+  .organization-columns > .flex-50 {
+    width: 100%;
+    flex-basis: auto;
+  }
 }

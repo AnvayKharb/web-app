@@ -1942,7 +1942,9 @@
       "Tenant Management": "Tenant Management",
       "Tenant Management Sign In": "Tenant Management Sign In",
       "Database Connection": "Database Connection",
-      "Reverse Transaction": "거래 취소"
+      "Reverse Transaction": "거래 취소",
+      "Savings Account Opening": "저축 계좌 개설",
+      "Savings Account Deposit": "저축 계좌 입금"
     },
     "inputs": {
       "Returned": "반환됨",
@@ -6322,6 +6324,9 @@
     }
   },
   "web1232": {
+    "navigation": {
+      "baseTeller": "기본 창구"
+    },
     "views": {
       "closing": "금전 등록기 폐쇄",
       "global": "글로벌 현금 수",

@@ -1938,7 +1938,9 @@
       "Tenant Management": "Tenant Management",
       "Tenant Management Sign In": "Tenant Management Sign In",
       "Database Connection": "Database Connection",
-      "Reverse Transaction": "Batilisha Muamala"
+      "Reverse Transaction": "Batilisha Muamala",
+      "Savings Account Opening": "Kufungua Akaunti ya Akiba",
+      "Savings Account Deposit": "Amana ya Akaunti ya Akiba"
     },
     "inputs": {
       "Returned": "Imerudishwa",
@@ -6319,6 +6321,9 @@
     }
   },
   "web1232": {
+    "navigation": {
+      "baseTeller": "Kaunta ya msingi"
+    },
     "views": {
       "closing": "Daftari la Fedha Kufungwa",
       "global": "Hesabu ya Fedha Duniani",

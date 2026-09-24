@@ -6512,6 +6512,9 @@
     }
   },
   "web1232": {
+    "navigation": {
+      "baseTeller": "Base Teller"
+    },
     "views": {
       "closing": "Cash Register Closing",
       "global": "Global Cash Count",
