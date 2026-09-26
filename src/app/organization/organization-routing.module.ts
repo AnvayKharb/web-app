@@ -15,6 +15,7 @@ import { Route } from '../core/route/route.service';
 
 /** Custom Components */
 import { OrganizationComponent } from './organization.component';
+import { BaseTellerComponent } from './base-teller/base-teller.component';
 import { LoanProvisioningCriteriaComponent } from './loan-provisioning-criteria/loan-provisioning-criteria.component';
 import { OfficesComponent } from './offices/offices.component';
 import { EmployeesComponent } from './employees/employees.component';
@@ -32,6 +33,8 @@ import { ReturnedCheckPaymentComponent } from './base-teller/returned-check-paym
 import { returnedCheckPaymentGuard } from './base-teller/returned-check-payment/returned-check-payment.guard';
 import { ServicePaymentComponent } from './base-teller/service-payment/service-payment.component';
 import { servicePaymentGuard } from './base-teller/service-payment/service-payment.guard';
+import { CashAllocationComponent } from './base-teller/cash-allocation/cash-allocation.component';
+import { cashAllocationGuard } from './base-teller/cash-allocation/cash-allocation.guard';
 import { PaymentTypesComponent } from './payment-types/payment-types.component';
 import { EditPaymentTypeComponent } from './payment-types/edit-payment-type/edit-payment-type.component';
 import { PasswordPreferencesComponent } from './password-preferences/password-preferences.component';
@@ -445,6 +448,21 @@ const routes: Routes = [
               ]
             }
           ]
+        },
+        {
+          path: 'base-teller',
+          pathMatch: 'full',
+          component: BaseTellerComponent,
+          data: { title: 'labels.text.Base Teller', breadcrumb: 'labels.text.Base Teller' }
+        },
+        {
+          path: 'base-teller/cash-allocations',
+          component: CashAllocationComponent,
+          canActivate: [cashAllocationGuard],
+          data: {
+            title: 'cashAllocation.title',
+            breadcrumb: 'cashAllocation.title'
+          }
         },
         {
           path: 'base-teller/savings-account-openings',

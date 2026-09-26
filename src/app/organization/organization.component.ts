@@ -53,6 +53,13 @@ export class OrganizationComponent implements AfterViewInit {
 
   shouldShowFundMapping = false;
   productionMode = environment.productionMode === true;
+  readonly baseTellerPermissions = [
+    'READ_BASE_TELLER_CASH_ALLOCATION',
+    'READ_TELLER',
+    'DEPOSIT_SAVINGSACCOUNT',
+    'READ_BASE_TELLER_RETURNED_CHECK_PAYMENT',
+    ...(this.productionMode ? ['READ_BASE_TELLER_SERVICE_PAYMENT'] : [])
+  ];
   /* Reference of manage offices */
   @ViewChild('office') office: ElementRef<any>;
   /* Template for popover on manage offices */

@@ -42,4 +42,8 @@ describe('OrganizationComponent', () => {
   it('enables the service payment menu state when production mode is enabled', () => {
     expect(createComponent(true).productionMode).toBe(true);
   });
+
+  it('shows the dedicated Base Teller entry for the WEB-1221 read permission', () => {
+    expect(createComponent(false).baseTellerPermissions).toContain('READ_BASE_TELLER_CASH_ALLOCATION');
+  });
 });
