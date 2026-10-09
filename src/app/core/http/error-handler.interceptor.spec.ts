@@ -48,6 +48,19 @@ describe('ErrorHandlerInterceptor', () => {
     interceptor = TestBed.inject(ErrorHandlerInterceptor);
   });
 
+  it('lets Cash Exchange map backend errors without exposing server messages', () => {
+    expect(intercept('/fineract-provider/api/v2/base-teller/cash-exchanges/preview', 403)).toBe('errored');
+    expect(alert).not.toHaveBeenCalled();
+  });
+
+  it('still alerts when a Cash Exchange request finds an expired session', () => {
+    expect(intercept('/fineract-provider/api/v2/base-teller/cash-exchanges/preview', 401)).toBe('threw');
+    expect(alert).toHaveBeenCalledWith({
+      type: 'errors.error.auth.sessionExpired.type',
+      message: 'errors.error.auth.sessionExpired.message'
+    });
+  });
+
   it('does not alert when the branding endpoint is absent', () => {
     // Deployment without the self-service plugin.
     const result = intercept(`/fineract-provider/api/v1${BRANDING_API_PATH}`, 404);
